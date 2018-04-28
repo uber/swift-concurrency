@@ -1,6 +1,6 @@
 # Swift Concurrency Utility Classes
 
-A set of concurrency utility classes used by Uber. These are largely inspired by the equivalent (java.util.concurrent)[https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/package-summary.html] package classes.
+A set of concurrency utility classes used by Uber. These are largely inspired by the equivalent [java.util.concurrent](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/package-summary.html) package classes.
 
 ## `AtomicBool` provides locking-free synchronization of a mutable `Bool`. It provides higher performance than using locks to ensure thread-safety and synchronization correctness.
 
