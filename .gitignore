@@ -1,6 +1,6 @@
-# Xcode
-*.xcodeproj
-*.xcworkspace
+# Xcode Add Xcode project to allow Carthage.
+#*.xcodeproj
+#*.xcworkspace
 
 ## Build generated
 build/
