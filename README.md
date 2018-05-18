@@ -1,4 +1,6 @@
 # Swift Concurrency
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fuber%2Fswift-concurrency.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fuber%2Fswift-concurrency?ref=badge_shield)
+
 
 ## Contents
 
@@ -83,3 +85,7 @@ $ swift test
 ```
 
 Or you can follow the steps above to generate a Xcode project and run tests within Xcode.
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fuber%2Fswift-concurrency.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fuber%2Fswift-concurrency?ref=badge_large)
