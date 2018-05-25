@@ -81,12 +81,18 @@ public class CountDownLatch {
         }
 
         condition.lock()
+        defer {
+            condition.unlock()
+        }
         // Check count again after acquiring the lock, before entering waiting. This ensures the caller
         // does not enter waiting after the last counting down occurs.
-        if conditionCount.value > 0 {
-            return condition.wait(until: deadline)
+        // NSCondition must be run in a loop, since it can wake up randomly without any siganling.
+        while conditionCount.value > 0 {
+            let result = condition.wait(until: deadline)
+            if !result || Date() > deadline {
+                return false
+            }
         }
-        condition.unlock()
         return true
     }
 
