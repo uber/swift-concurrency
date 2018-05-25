@@ -34,14 +34,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		413AD8C020AF73AB00AD7F36 /* PBXContainerItemProxy */ = {
+		412CDD2D20B88EAB00AF5890 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "Concurrency::Concurrency";
 			remoteInfo = Concurrency;
 		};
-		413AD8C120AF73AB00AD7F36 /* PBXContainerItemProxy */ = {
+		412CDD2E20B88EAB00AF5890 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
@@ -258,12 +258,12 @@
 		OBJ_42 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Concurrency::ConcurrencyTests" /* ConcurrencyTests */;
-			targetProxy = 413AD8C120AF73AB00AD7F36 /* PBXContainerItemProxy */;
+			targetProxy = 412CDD2E20B88EAB00AF5890 /* PBXContainerItemProxy */;
 		};
 		OBJ_54 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Concurrency::Concurrency" /* Concurrency */;
-			targetProxy = 413AD8C020AF73AB00AD7F36 /* PBXContainerItemProxy */;
+			targetProxy = 412CDD2D20B88EAB00AF5890 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
