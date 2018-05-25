@@ -47,7 +47,7 @@ $ brew install carthage
 To integrate Swift-Concurrency into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "https://github.com/uber/swift-concurrency.git" ~> 0.3.0
+github "https://github.com/uber/swift-concurrency.git" ~> 0.4.0
 ```
 
 Run `carthage update` to build the framework and add the built `Concurrency.framework` into your Xcode project, by following the [instructions](https://github.com/Carthage/Carthage#adding-frameworks-to-an-application)
