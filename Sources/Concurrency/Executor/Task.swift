@@ -39,7 +39,7 @@ public protocol Task {
 // while allowing the internal executor implementations to operate on the
 // non-generic, type-erased `Task` protocol, since Swift does not support
 // wildcard generics.
-public class AbstractTask<ResultType>: Task {
+open class AbstractTask<ResultType>: Task {
 
     /// Execute this task without any type information.
     ///
