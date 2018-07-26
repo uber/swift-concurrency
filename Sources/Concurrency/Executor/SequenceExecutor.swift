@@ -36,12 +36,12 @@ public class SequenceExecutionHandle<SequenceResultType> {
     /// completes.
     /// - throws: `SequenceExecutionError.awaitTimeout` if the given timeout
     /// period elapsed before the sequence execution completed.
-    func await(withTimeout timeout: TimeInterval?) throws -> SequenceResultType {
+    public func await(withTimeout timeout: TimeInterval?) throws -> SequenceResultType {
         fatalError("await not yet implemented.")
     }
 
     /// Cancel the sequence execution at the point this function is invoked.
-    func cancel() {}
+    public func cancel() {}
 }
 
 /// The execution of a sequence.
