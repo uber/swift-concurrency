@@ -17,7 +17,7 @@
 import XCTest
 @testable import Concurrency
 
-class ConcurrentConcurrentSequenceExecutorTests: XCTestCase {
+class ConcurrentSequenceExecutorTests: XCTestCase {
 
     static var allTests = [
         ("test_executeSequence_withSingle_verifyConcurrency", test_executeSequence_withSingle_verifyConcurrency),
@@ -32,7 +32,7 @@ class ConcurrentConcurrentSequenceExecutorTests: XCTestCase {
         var threadHashes = [Int: Int]()
         let threadHashesLock = NSRecursiveLock()
 
-        for i in 0 ..< 10000 {
+        for i in 0 ..< 30000 {
             let didComplete = expectation(description: "task-\(i)")
             let task = MockSelfRepeatingTask {
                 threadHashesLock.lock()
@@ -52,7 +52,7 @@ class ConcurrentConcurrentSequenceExecutorTests: XCTestCase {
         waitForExpectations(timeout: 3, handler: nil)
 
         threadHashesLock.lock()
-        XCTAssertGreaterThan(threadHashes.count, 4)
+        XCTAssertGreaterThan(threadHashes.count, 2)
         threadHashesLock.unlock()
     }
 

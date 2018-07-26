@@ -22,4 +22,5 @@ XCTMain([
     testCase(AtomicIntTests.allTests),
     testCase(AtomicReferenceTests.allTests),
     testCase(CountDownLatchTests.allTests),
+    testCase(ConcurrentSequenceExecutorTests.allTests),
 ])
