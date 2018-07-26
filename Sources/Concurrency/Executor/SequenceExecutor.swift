@@ -28,6 +28,9 @@ public enum SequenceExecutionError: Error {
 // type. Protocols with associatedType cannot be directly used as types.
 open class SequenceExecutionHandle<SequenceResultType> {
 
+    /// Initializer.
+    public init() {}
+
     /// Block the caller thread until the sequence of tasks all finished
     /// execution or the specified timeout period has elapsed.
     ///
