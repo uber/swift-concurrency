@@ -41,6 +41,9 @@ public protocol Task {
 // wildcard generics.
 open class AbstractTask<ResultType>: Task {
 
+    /// Initializer.
+    public init() {}
+
     /// Execute this task without any type information.
     ///
     /// - note: This method should only be used by internal executor
