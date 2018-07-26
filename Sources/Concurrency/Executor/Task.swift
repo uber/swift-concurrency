@@ -42,7 +42,7 @@ public protocol Task {
 open class AbstractTask<ResultType>: Task {
 
     /// Initializer.
-    open init() {}
+    public init() {}
 
     /// Execute this task without any type information.
     ///
