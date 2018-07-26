@@ -6,20 +6,6 @@
 	objectVersion = 46;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		"Concurrency::ConcurrencyPackageTests::ProductTarget" /* ConcurrencyPackageTests */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = OBJ_39 /* Build configuration list for PBXAggregateTarget "ConcurrencyPackageTests" */;
-			buildPhases = (
-			);
-			dependencies = (
-				OBJ_42 /* PBXTargetDependency */,
-			);
-			name = ConcurrencyPackageTests;
-			productName = ConcurrencyPackageTests;
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
 		41B94843210A4744007E59C8 /* SerialSequenceExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B9483F210A4744007E59C8 /* SerialSequenceExecutor.swift */; };
 		41B94844210A4744007E59C8 /* SequenceExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B94840210A4744007E59C8 /* SequenceExecutor.swift */; };
@@ -30,7 +16,6 @@
 		OBJ_28 /* AtomicInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* AtomicInt.swift */; };
 		OBJ_29 /* AtomicReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* AtomicReference.swift */; };
 		OBJ_30 /* CountDownLatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* CountDownLatch.swift */; };
-		OBJ_37 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_48 /* AtomicBoolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* AtomicBoolTests.swift */; };
 		OBJ_49 /* AtomicIntTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* AtomicIntTests.swift */; };
 		OBJ_50 /* AtomicReferenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* AtomicReferenceTests.swift */; };
@@ -45,13 +30,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = "Concurrency::Concurrency";
 			remoteInfo = Concurrency;
-		};
-		412CDD2E20B88EAB00AF5890 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = OBJ_1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = "Concurrency::ConcurrencyTests";
-			remoteInfo = ConcurrencyTests;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -209,20 +187,6 @@
 			productReference = "Concurrency::ConcurrencyTests::Product" /* ConcurrencyTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		"Concurrency::SwiftPMPackageDescription" /* ConcurrencyPackageDescription */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_33 /* Build configuration list for PBXNativeTarget "ConcurrencyPackageDescription" */;
-			buildPhases = (
-				OBJ_36 /* Sources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = ConcurrencyPackageDescription;
-			productName = ConcurrencyPackageDescription;
-			productType = "com.apple.product-type.framework";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -244,8 +208,6 @@
 			projectRoot = "";
 			targets = (
 				"Concurrency::Concurrency" /* Concurrency */,
-				"Concurrency::SwiftPMPackageDescription" /* ConcurrencyPackageDescription */,
-				"Concurrency::ConcurrencyPackageTests::ProductTarget" /* ConcurrencyPackageTests */,
 				"Concurrency::ConcurrencyTests" /* ConcurrencyTests */,
 			);
 		};
@@ -267,14 +229,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_36 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 0;
-			files = (
-				OBJ_37 /* Package.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		OBJ_47 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
@@ -290,11 +244,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		OBJ_42 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = "Concurrency::ConcurrencyTests" /* ConcurrencyTests */;
-			targetProxy = 412CDD2E20B88EAB00AF5890 /* PBXContainerItemProxy */;
-		};
 		OBJ_54 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Concurrency::Concurrency" /* Concurrency */;
@@ -372,24 +321,6 @@
 			};
 			name = Debug;
 		};
-		OBJ_34 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.9.3.0.9E145.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
-				SWIFT_VERSION = 4.0;
-			};
-			name = Debug;
-		};
-		OBJ_35 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.9.3.0.9E145.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
-				SWIFT_VERSION = 4.0;
-			};
-			name = Release;
-		};
 		OBJ_4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -408,18 +339,6 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SWIFT_PACKAGE;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				USE_HEADERMAP = NO;
-			};
-			name = Release;
-		};
-		OBJ_40 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-			};
-			name = Debug;
-		};
-		OBJ_41 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
 			};
 			name = Release;
 		};
@@ -478,24 +397,6 @@
 			buildConfigurations = (
 				OBJ_24 /* Debug */,
 				OBJ_25 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		OBJ_33 /* Build configuration list for PBXNativeTarget "ConcurrencyPackageDescription" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				OBJ_34 /* Debug */,
-				OBJ_35 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		OBJ_39 /* Build configuration list for PBXAggregateTarget "ConcurrencyPackageTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				OBJ_40 /* Debug */,
-				OBJ_41 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

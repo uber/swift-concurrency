@@ -87,7 +87,7 @@ class ConcurrentConcurrentSequenceExecutorTests: XCTestCase {
     }
 
     func test_executeSequence_withTerminatingSequence_noTimeout_verifyAwaitResult_verifyConcurrency() {
-        let executor = ConcurrentSequenceExecutor(name: "test_executeSequence_withTerminatingSequence_noTimeout_verifyAwait_verifyConcurrency")
+        let executor = ConcurrentSequenceExecutor(name: "test_executeSequence_withTerminatingSequence_noTimeout_verifyAwaitResult_verifyConcurrency")
 
         var executionCount = 0
         var threadHashes = [Int: Int]()
