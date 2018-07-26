@@ -21,6 +21,11 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		41B94843210A4744007E59C8 /* SerialSequenceExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B9483F210A4744007E59C8 /* SerialSequenceExecutor.swift */; };
+		41B94844210A4744007E59C8 /* SequenceExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B94840210A4744007E59C8 /* SequenceExecutor.swift */; };
+		41B94845210A4744007E59C8 /* ConcurrentSequenceExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B94841210A4744007E59C8 /* ConcurrentSequenceExecutor.swift */; };
+		41B94846210A4744007E59C8 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B94842210A4744007E59C8 /* Task.swift */; };
+		41B94849210A4756007E59C8 /* ConcurrentSequenceExecutorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B94848210A4756007E59C8 /* ConcurrentSequenceExecutorTests.swift */; };
 		OBJ_27 /* AtomicBool.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* AtomicBool.swift */; };
 		OBJ_28 /* AtomicInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* AtomicInt.swift */; };
 		OBJ_29 /* AtomicReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* AtomicReference.swift */; };
@@ -51,6 +56,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		41B9483F210A4744007E59C8 /* SerialSequenceExecutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerialSequenceExecutor.swift; sourceTree = "<group>"; };
+		41B94840210A4744007E59C8 /* SequenceExecutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequenceExecutor.swift; sourceTree = "<group>"; };
+		41B94841210A4744007E59C8 /* ConcurrentSequenceExecutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcurrentSequenceExecutor.swift; sourceTree = "<group>"; };
+		41B94842210A4744007E59C8 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		41B94848210A4756007E59C8 /* ConcurrentSequenceExecutorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcurrentSequenceExecutorTests.swift; sourceTree = "<group>"; };
 		"Concurrency::Concurrency::Product" /* Concurrency.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Concurrency.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Concurrency::ConcurrencyTests::Product" /* ConcurrencyTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = ConcurrencyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* AtomicInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomicInt.swift; sourceTree = "<group>"; };
@@ -83,6 +93,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		41B9483E210A4744007E59C8 /* Executor */ = {
+			isa = PBXGroup;
+			children = (
+				41B9483F210A4744007E59C8 /* SerialSequenceExecutor.swift */,
+				41B94840210A4744007E59C8 /* SequenceExecutor.swift */,
+				41B94841210A4744007E59C8 /* ConcurrentSequenceExecutor.swift */,
+				41B94842210A4744007E59C8 /* Task.swift */,
+			);
+			path = Executor;
+			sourceTree = "<group>";
+		};
+		41B94847210A4756007E59C8 /* Executor */ = {
+			isa = PBXGroup;
+			children = (
+				41B94848210A4756007E59C8 /* ConcurrentSequenceExecutorTests.swift */,
+			);
+			path = Executor;
+			sourceTree = "<group>";
+		};
 		OBJ_13 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +123,7 @@
 		OBJ_14 /* ConcurrencyTests */ = {
 			isa = PBXGroup;
 			children = (
+				41B94847210A4756007E59C8 /* Executor */,
 				OBJ_15 /* AtomicBoolTests.swift */,
 				OBJ_16 /* AtomicIntTests.swift */,
 				OBJ_17 /* AtomicReferenceTests.swift */,
@@ -133,6 +163,7 @@
 		OBJ_8 /* Concurrency */ = {
 			isa = PBXGroup;
 			children = (
+				41B9483E210A4744007E59C8 /* Executor */,
 				OBJ_9 /* AtomicBool.swift */,
 				OBJ_10 /* AtomicInt.swift */,
 				OBJ_11 /* AtomicReference.swift */,
@@ -225,9 +256,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				41B94846210A4744007E59C8 /* Task.swift in Sources */,
 				OBJ_27 /* AtomicBool.swift in Sources */,
+				41B94844210A4744007E59C8 /* SequenceExecutor.swift in Sources */,
+				41B94845210A4744007E59C8 /* ConcurrentSequenceExecutor.swift in Sources */,
 				OBJ_28 /* AtomicInt.swift in Sources */,
 				OBJ_29 /* AtomicReference.swift in Sources */,
+				41B94843210A4744007E59C8 /* SerialSequenceExecutor.swift in Sources */,
 				OBJ_30 /* CountDownLatch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -246,6 +281,7 @@
 			files = (
 				OBJ_48 /* AtomicBoolTests.swift in Sources */,
 				OBJ_49 /* AtomicIntTests.swift in Sources */,
+				41B94849210A4756007E59C8 /* ConcurrentSequenceExecutorTests.swift in Sources */,
 				OBJ_50 /* AtomicReferenceTests.swift in Sources */,
 				OBJ_51 /* CountDownLatchTests.swift in Sources */,
 			);
