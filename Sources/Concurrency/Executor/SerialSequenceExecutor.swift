@@ -24,7 +24,10 @@ import Foundation
 /// challenging. Production code should use `ConcurrentSequenceExecutor`.
 /// - seeAlso: `SequenceExecutor`.
 /// - seeAlso: `Task`.
-class SerialSequenceExecutor: SequenceExecutor {
+public class SerialSequenceExecutor: SequenceExecutor {
+
+    /// Initializer.
+    public init() {}
 
     /// Execute a sequence of tasks serially from the given initial task
     /// on the caller thread.
@@ -38,7 +41,7 @@ class SerialSequenceExecutor: SequenceExecutor {
     /// by this closure are executed serially on the initial caller thread.
     /// - returns: The execution handle that allows control and monitoring
     /// of the sequence of tasks being executed.
-    func executeSequence<SequenceResultType>(from initialTask: Task, with execution: @escaping (Task, Any) -> SequenceExecution<SequenceResultType>) -> SequenceExecutionHandle<SequenceResultType> {
+    public func executeSequence<SequenceResultType>(from initialTask: Task, with execution: @escaping (Task, Any) -> SequenceExecution<SequenceResultType>) -> SequenceExecutionHandle<SequenceResultType> {
         let handle: SequenceExecutionHandleImpl<SequenceResultType> = SequenceExecutionHandleImpl()
         execute(initialTask, with: handle, execution)
         return handle
