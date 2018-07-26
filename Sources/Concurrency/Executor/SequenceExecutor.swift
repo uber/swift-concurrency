@@ -26,7 +26,7 @@ public enum SequenceExecutionError: Error {
 /// and monitoring of the said sequence of tasks.
 // This cannot be a protocol, since `SequenceExecutor` references this as a
 // type. Protocols with associatedType cannot be directly used as types.
-public class SequenceExecutionHandle<SequenceResultType> {
+open class SequenceExecutionHandle<SequenceResultType> {
 
     /// Block the caller thread until the sequence of tasks all finished
     /// execution or the specified timeout period has elapsed.
@@ -36,12 +36,12 @@ public class SequenceExecutionHandle<SequenceResultType> {
     /// completes.
     /// - throws: `SequenceExecutionError.awaitTimeout` if the given timeout
     /// period elapsed before the sequence execution completed.
-    public func await(withTimeout timeout: TimeInterval?) throws -> SequenceResultType {
+    open func await(withTimeout timeout: TimeInterval?) throws -> SequenceResultType {
         fatalError("await not yet implemented.")
     }
 
     /// Cancel the sequence execution at the point this function is invoked.
-    public func cancel() {}
+    open func cancel() {}
 }
 
 /// The execution of a sequence.
