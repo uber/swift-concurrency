@@ -16,11 +16,16 @@
 
 import Foundation
 
+public let nonTrackingDefaultTaskId = Int.min
+
 /// An individual unit of work that can be executed in a concurrent
 /// environment by an executor.
 // Task cannot be generic since it needs to be referenced by the executor
 // class which cannot provide type information for specific tasks.
 public protocol Task {
+
+    /// A unique ID number identifying the task.
+    var id: Int { get }
 
     /// Execute this task without any type information.
     ///
@@ -41,8 +46,16 @@ public protocol Task {
 // wildcard generics.
 open class AbstractTask<ResultType>: Task {
 
+    /// A unique ID number identifying the task.
+    public let id: Int
+
     /// Initializer.
-    public init() {}
+    ///
+    /// - parameter id: A unique ID number identifying the task. This value
+    /// defaults to `nonTrackingDefaultTaskId`.
+    public init(id: Int = nonTrackingDefaultTaskId) {
+        self.id = id
+    }
 
     /// Execute this task without any type information.
     ///
