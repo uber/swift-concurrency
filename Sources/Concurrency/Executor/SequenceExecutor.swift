@@ -18,8 +18,12 @@ import Foundation
 
 /// Errors that can occur during a sequence execution.
 public enum SequenceExecutionError: Error {
-    /// The waiting on sequence completion timed out.
-    case awaitTimeout
+    /// The waiting on sequence completion timed out. The `Int` value
+    /// indicates the ID of the task that was being executed when the
+    /// timeout occurred. If the value is `nonTrackingDefaultTaskId`,
+    /// then the executor was not configured to track task IDs during
+    /// initialization.
+    case awaitTimeout(Int)
 }
 
 /// The handle of the execution of a sequence of tasks, that allows control

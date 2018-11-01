@@ -122,14 +122,14 @@ class ConcurrentSequenceExecutorTests: XCTestCase {
     }
 
     func test_executeSequence_withNonTerminatingSequence_withTimeout_verifyAwaitTimeout() {
-        let executor = ConcurrentSequenceExecutor(name: "test_executeSequence_withNonTerminatingSequence_withTimeout_verifyAwaitTimeout")
+        let executor = ConcurrentSequenceExecutor(name: "test_executeSequence_withNonTerminatingSequence_withTimeout_verifyAwaitTimeout", shouldTackTaskId: true)
 
-        let sequencedTask = MockSelfRepeatingTask {
+        let sequencedTask = MockSelfRepeatingTask(id: 123) {
             return 0
         }
 
         let handle = executor.executeSequence(from: sequencedTask) { _, _ -> SequenceExecution<Int> in
-            return .continueSequence(MockSelfRepeatingTask {
+            return .continueSequence(MockSelfRepeatingTask(id: 123) {
                 return 0
             })
         }
@@ -138,10 +138,11 @@ class ConcurrentSequenceExecutorTests: XCTestCase {
         let startTime = CACurrentMediaTime()
         do {
             _ = try handle.await(withTimeout: 0.5)
-        } catch SequenceExecutionError.awaitTimeout {
+        } catch SequenceExecutionError.awaitTimeout(let id) {
             didThrowError = true
             let endTime = CACurrentMediaTime()
             XCTAssertTrue((endTime - startTime) >= 0.5)
+            XCTAssertEqual(id, 123)
         } catch {
             XCTFail("Incorrect error thrown: \(error)")
         }
@@ -154,8 +155,9 @@ class MockSelfRepeatingTask: AbstractTask<Int> {
 
     private let execution: () -> Int
 
-    init(execution: @escaping () -> Int) {
+    init(id: Int = nonTrackingDefaultTaskId, execution: @escaping () -> Int) {
         self.execution = execution
+        super.init(id: id)
     }
 
     override func execute() -> Int {

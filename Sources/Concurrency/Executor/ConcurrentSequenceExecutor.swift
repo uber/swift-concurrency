@@ -27,8 +27,15 @@ public class ConcurrentSequenceExecutor: SequenceExecutor {
     /// - parameter name: The name of the executor.
     /// - parameter qos: The quality of service of this executor. This
     /// defaults to `userInitiated`.
-    public init(name: String, qos: DispatchQoS = .userInitiated) {
+    /// - parameter shouldTackTaskId: `true` if task IDs should be tracked
+    /// as tasks are executed. `false` otherwise. By tracking the task IDs,
+    /// if waiting on the completion of a task sequence times out, the
+    /// reported error contains the ID of the task that was being executed
+    /// when the timeout occurred. The tracking does incur a minor
+    /// performance cost. This value defaults to `false`.
+    public init(name: String, qos: DispatchQoS = .userInitiated, shouldTackTaskId: Bool = false) {
         taskQueue = DispatchQueue(label: "Executor.taskQueue-\(name)", qos: qos, attributes: .concurrent)
+        self.shouldTackTaskId = shouldTackTaskId
     }
 
     /// Execute a sequence of tasks concurrently from the given initial task.
@@ -51,11 +58,16 @@ public class ConcurrentSequenceExecutor: SequenceExecutor {
     // MARK: - Private
 
     private let taskQueue: DispatchQueue
+    private let shouldTackTaskId: Bool
 
     private func execute<SequenceResultType>(_ task: Task, with sequenceHandle: SynchronizedSequenceExecutionHandle<SequenceResultType>, _ execution: @escaping (Task, Any) -> SequenceExecution<SequenceResultType>) {
         taskQueue.async {
             guard !sequenceHandle.isCancelled else {
                 return
+            }
+
+            if self.shouldTackTaskId {
+                sequenceHandle.willBeginExecuting(taskId: task.id)
             }
 
             let result = task.typeErasedExecute()
@@ -74,6 +86,7 @@ private class SynchronizedSequenceExecutionHandle<SequenceResultType>: SequenceE
 
     private let latch = CountDownLatch(count: 1)
     private let didCancel = AtomicBool(initialValue: false)
+    private let currentTaskId = AtomicInt(initialValue: nonTrackingDefaultTaskId)
 
     // Use a lock to ensure result is properly accessed, since the read
     // `await` method may be invoked on a different thread than the write
@@ -85,10 +98,14 @@ private class SynchronizedSequenceExecutionHandle<SequenceResultType>: SequenceE
         return didCancel.value
     }
 
+    fileprivate func willBeginExecuting(taskId: Int) {
+        currentTaskId.value = taskId
+    }
+
     fileprivate override func await(withTimeout timeout: TimeInterval?) throws -> SequenceResultType {
         let didComplete = latch.await(timeout: timeout)
         if !didComplete {
-            throw SequenceExecutionError.awaitTimeout
+            throw SequenceExecutionError.awaitTimeout(currentTaskId.value)
         }
 
         resultLock.lock()
