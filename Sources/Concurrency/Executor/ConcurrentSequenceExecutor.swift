@@ -27,15 +27,15 @@ public class ConcurrentSequenceExecutor: SequenceExecutor {
     /// - parameter name: The name of the executor.
     /// - parameter qos: The quality of service of this executor. This
     /// defaults to `userInitiated`.
-    /// - parameter shouldTackTaskId: `true` if task IDs should be tracked
+    /// - parameter shouldTrackTaskId: `true` if task IDs should be tracked
     /// as tasks are executed. `false` otherwise. By tracking the task IDs,
     /// if waiting on the completion of a task sequence times out, the
     /// reported error contains the ID of the task that was being executed
     /// when the timeout occurred. The tracking does incur a minor
     /// performance cost. This value defaults to `false`.
-    public init(name: String, qos: DispatchQoS = .userInitiated, shouldTackTaskId: Bool = false) {
+    public init(name: String, qos: DispatchQoS = .userInitiated, shouldTrackTaskId: Bool = false) {
         taskQueue = DispatchQueue(label: "Executor.taskQueue-\(name)", qos: qos, attributes: .concurrent)
-        self.shouldTackTaskId = shouldTackTaskId
+        self.shouldTrackTaskId = shouldTrackTaskId
     }
 
     /// Execute a sequence of tasks concurrently from the given initial task.
@@ -58,7 +58,7 @@ public class ConcurrentSequenceExecutor: SequenceExecutor {
     // MARK: - Private
 
     private let taskQueue: DispatchQueue
-    private let shouldTackTaskId: Bool
+    private let shouldTrackTaskId: Bool
 
     private func execute<SequenceResultType>(_ task: Task, with sequenceHandle: SynchronizedSequenceExecutionHandle<SequenceResultType>, _ execution: @escaping (Task, Any) -> SequenceExecution<SequenceResultType>) {
         taskQueue.async {
@@ -66,7 +66,7 @@ public class ConcurrentSequenceExecutor: SequenceExecutor {
                 return
             }
 
-            if self.shouldTackTaskId {
+            if self.shouldTrackTaskId {
                 sequenceHandle.willBeginExecuting(taskId: task.id)
             }
 
