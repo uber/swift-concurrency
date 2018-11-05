@@ -122,7 +122,7 @@ class ConcurrentSequenceExecutorTests: XCTestCase {
     }
 
     func test_executeSequence_withNonTerminatingSequence_withTimeout_verifyAwaitTimeout() {
-        let executor = ConcurrentSequenceExecutor(name: "test_executeSequence_withNonTerminatingSequence_withTimeout_verifyAwaitTimeout", shouldTackTaskId: true)
+        let executor = ConcurrentSequenceExecutor(name: "test_executeSequence_withNonTerminatingSequence_withTimeout_verifyAwaitTimeout", shouldTrackTaskId: true)
 
         let sequencedTask = MockSelfRepeatingTask(id: 123) {
             return 0
