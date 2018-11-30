@@ -33,8 +33,11 @@ public class ConcurrentSequenceExecutor: SequenceExecutor {
     /// reported error contains the ID of the task that was being executed
     /// when the timeout occurred. The tracking does incur a minor
     /// performance cost. This value defaults to `false`.
-    public init(name: String, qos: DispatchQoS = .userInitiated, shouldTrackTaskId: Bool = false) {
+    /// - parameter maxConcurrentTasks: limits the maximum number of tasks
+    /// run concurrently. Defaults to Int.max.
+    public init(name: String, qos: DispatchQoS = .userInitiated, shouldTrackTaskId: Bool = false, maxConcurrentTasks: Int = Int.max) {
         taskQueue = DispatchQueue(label: "Executor.taskQueue-\(name)", qos: qos, attributes: .concurrent)
+        taskSemaphore = DispatchSemaphore(value: maxConcurrentTasks)
         self.shouldTrackTaskId = shouldTrackTaskId
     }
 
@@ -58,10 +61,16 @@ public class ConcurrentSequenceExecutor: SequenceExecutor {
     // MARK: - Private
 
     private let taskQueue: DispatchQueue
+    private let taskSemaphore: DispatchSemaphore
     private let shouldTrackTaskId: Bool
 
     private func execute<SequenceResultType>(_ task: Task, with sequenceHandle: SynchronizedSequenceExecutionHandle<SequenceResultType>, _ execution: @escaping (Task, Any) -> SequenceExecution<SequenceResultType>) {
+        taskSemaphore.wait()
         taskQueue.async {
+            defer {
+                self.taskSemaphore.signal()
+            }
+            
             guard !sequenceHandle.isCancelled else {
                 return
             }
