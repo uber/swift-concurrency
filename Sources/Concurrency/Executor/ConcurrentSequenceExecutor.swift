@@ -34,12 +34,10 @@ public class ConcurrentSequenceExecutor: SequenceExecutor {
     /// when the timeout occurred. The tracking does incur a minor
     /// performance cost. This value defaults to `false`.
     /// - parameter maxConcurrentTasks: limits the maximum number of tasks
-    /// run concurrently. Defaults to 0, which will set the max to the number
-    /// of processors.
-    public init(name: String, qos: DispatchQoS = .userInitiated, shouldTrackTaskId: Bool = false, maxConcurrentTasks: Int = 0) {
+    /// run concurrently. Defaults to Int.max.
+    public init(name: String, qos: DispatchQoS = .userInitiated, shouldTrackTaskId: Bool = false, maxConcurrentTasks: Int = Int.max) {
         taskQueue = DispatchQueue(label: "Executor.taskQueue-\(name)", qos: qos, attributes: .concurrent)
-        let semaphoreCount = maxConcurrentTasks == 0 ? ProcessInfo().processorCount : maxConcurrentTasks
-        taskSemaphore = DispatchSemaphore(value: semaphoreCount)
+        taskSemaphore = DispatchSemaphore(value: maxConcurrentTasks)
         self.shouldTrackTaskId = shouldTrackTaskId
     }
 
