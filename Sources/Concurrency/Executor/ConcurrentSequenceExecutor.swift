@@ -33,11 +33,16 @@ public class ConcurrentSequenceExecutor: SequenceExecutor {
     /// reported error contains the ID of the task that was being executed
     /// when the timeout occurred. The tracking does incur a minor
     /// performance cost. This value defaults to `false`.
-    /// - parameter maxConcurrentTasks: limits the maximum number of tasks
-    /// run concurrently. Defaults to Int.max.
-    public init(name: String, qos: DispatchQoS = .userInitiated, shouldTrackTaskId: Bool = false, maxConcurrentTasks: Int = Int.max) {
+    /// - parameter maxConcurrentTasks: The optional maximum number of tasks
+    /// the executor can execute concurrently. `nil` if the executor should
+    /// not limit the maximum number of concurrent tasks. Defaults to `nil`.
+    public init(name: String, qos: DispatchQoS = .userInitiated, shouldTrackTaskId: Bool = false, maxConcurrentTasks: Int? = nil) {
         taskQueue = DispatchQueue(label: "Executor.taskQueue-\(name)", qos: qos, attributes: .concurrent)
-        taskSemaphore = DispatchSemaphore(value: maxConcurrentTasks)
+        if let maxConcurrentTasks = maxConcurrentTasks {
+            taskSemaphore = DispatchSemaphore(value: maxConcurrentTasks)
+        } else {
+            taskSemaphore = nil
+        }
         self.shouldTrackTaskId = shouldTrackTaskId
     }
 
@@ -61,16 +66,18 @@ public class ConcurrentSequenceExecutor: SequenceExecutor {
     // MARK: - Private
 
     private let taskQueue: DispatchQueue
-    private let taskSemaphore: DispatchSemaphore
+    private let taskSemaphore: DispatchSemaphore?
     private let shouldTrackTaskId: Bool
 
     private func execute<SequenceResultType>(_ task: Task, with sequenceHandle: SynchronizedSequenceExecutionHandle<SequenceResultType>, _ execution: @escaping (Task, Any) -> SequenceExecution<SequenceResultType>) {
-        taskSemaphore.wait()
+        taskSemaphore?.wait()
         taskQueue.async {
-            defer {
-                self.taskSemaphore.signal()
+            if let taskSemaphore = self.taskSemaphore {
+                defer {
+                    taskSemaphore.signal()
+                }
             }
-            
+
             guard !sequenceHandle.isCancelled else {
                 return
             }
