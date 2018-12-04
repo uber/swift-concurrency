@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		41B94843210A4744007E59C8 /* SerialSequenceExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B9483F210A4744007E59C8 /* SerialSequenceExecutor.swift */; };
+		41B94843210A4744007E59C8 /* ImmediateSerialSequenceExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B9483F210A4744007E59C8 /* ImmediateSerialSequenceExecutor.swift */; };
 		41B94844210A4744007E59C8 /* SequenceExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B94840210A4744007E59C8 /* SequenceExecutor.swift */; };
 		41B94845210A4744007E59C8 /* ConcurrentSequenceExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B94841210A4744007E59C8 /* ConcurrentSequenceExecutor.swift */; };
 		41B94846210A4744007E59C8 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B94842210A4744007E59C8 /* Task.swift */; };
@@ -34,7 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		41B9483F210A4744007E59C8 /* SerialSequenceExecutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SerialSequenceExecutor.swift; sourceTree = "<group>"; };
+		41B9483F210A4744007E59C8 /* ImmediateSerialSequenceExecutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImmediateSerialSequenceExecutor.swift; sourceTree = "<group>"; };
 		41B94840210A4744007E59C8 /* SequenceExecutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequenceExecutor.swift; sourceTree = "<group>"; };
 		41B94841210A4744007E59C8 /* ConcurrentSequenceExecutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcurrentSequenceExecutor.swift; sourceTree = "<group>"; };
 		41B94842210A4744007E59C8 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
@@ -74,7 +74,7 @@
 		41B9483E210A4744007E59C8 /* Executor */ = {
 			isa = PBXGroup;
 			children = (
-				41B9483F210A4744007E59C8 /* SerialSequenceExecutor.swift */,
+				41B9483F210A4744007E59C8 /* ImmediateSerialSequenceExecutor.swift */,
 				41B94840210A4744007E59C8 /* SequenceExecutor.swift */,
 				41B94841210A4744007E59C8 /* ConcurrentSequenceExecutor.swift */,
 				41B94842210A4744007E59C8 /* Task.swift */,
@@ -224,7 +224,7 @@
 				41B94845210A4744007E59C8 /* ConcurrentSequenceExecutor.swift in Sources */,
 				OBJ_28 /* AtomicInt.swift in Sources */,
 				OBJ_29 /* AtomicReference.swift in Sources */,
-				41B94843210A4744007E59C8 /* SerialSequenceExecutor.swift in Sources */,
+				41B94843210A4744007E59C8 /* ImmediateSerialSequenceExecutor.swift in Sources */,
 				OBJ_30 /* CountDownLatch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
