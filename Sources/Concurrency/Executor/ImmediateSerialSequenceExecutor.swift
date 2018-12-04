@@ -17,20 +17,20 @@
 import Foundation
 
 /// An executor that executes sequences of tasks serially from the
-/// caller thread.
+/// caller thread as soon as the execute method is invoked.
 ///
 /// - note: Generally this implementation should only be used for debugging
 /// purposes, as debugging highly concurrent task executions can be very
 /// challenging. Production code should use `ConcurrentSequenceExecutor`.
 /// - seeAlso: `SequenceExecutor`.
 /// - seeAlso: `Task`.
-public class SerialSequenceExecutor: SequenceExecutor {
+public class ImmediateSerialSequenceExecutor: SequenceExecutor {
 
     /// Initializer.
     public init() {}
 
     /// Execute a sequence of tasks serially from the given initial task
-    /// on the caller thread.
+    /// on the caller thread, immediately.
     ///
     /// - parameter initialTask: The root task of the sequence of tasks
     /// to be executed.
