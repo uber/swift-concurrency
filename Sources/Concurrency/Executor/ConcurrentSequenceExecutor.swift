@@ -72,13 +72,8 @@ public class ConcurrentSequenceExecutor: SequenceExecutor {
     private func execute<SequenceResultType>(_ task: Task, with sequenceHandle: SynchronizedSequenceExecutionHandle<SequenceResultType>, _ execution: @escaping (Task, Any) -> SequenceExecution<SequenceResultType>) {
         taskSemaphore?.wait()
         taskQueue.async {
-            if let taskSemaphore = self.taskSemaphore {
-                defer {
-                    taskSemaphore.signal()
-                }
-            }
-
             guard !sequenceHandle.isCancelled else {
+                self.taskSemaphore?.signal()
                 return
             }
 
@@ -88,6 +83,8 @@ public class ConcurrentSequenceExecutor: SequenceExecutor {
 
             let result = task.typeErasedExecute()
             let nextExecution = execution(task, result)
+            self.taskSemaphore?.signal()
+
             switch nextExecution {
             case .continueSequence(let nextTask):
                 self.execute(nextTask, with: sequenceHandle, execution)
