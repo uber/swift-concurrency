@@ -14,13 +14,19 @@
 //  limitations under the License.
 //
 
-import XCTest
-@testable import ConcurrencyTests
+#import <Foundation/Foundation.h>
+#import <stdatomic.h>
 
-XCTMain([
-    testCase(AtomicBoolTests.allTests),
-    testCase(AtomicIntTests.allTests),
-    testCase(AtomicReferenceTests.allTests),
-    testCase(CountDownLatchTests.allTests),
-    testCase(ConcurrentSequenceExecutorTests.allTests),
-])
+NS_ASSUME_NONNULL_BEGIN
+
+@interface AtomicBridges: NSObject
+
++ (long)fetchAndIncrementBarrier:(_Atomic(long) *)value;
+
++ (long)fetchAndDecrementBarrier:(_Atomic(long) *)value;
+
++ (bool)compare:(_Atomic(long) *)value withExpected:(long *)expected andSwap:(long)desired;
+
+@end
+
+NS_ASSUME_NONNULL_END

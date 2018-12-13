@@ -7,133 +7,185 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		41B94843210A4744007E59C8 /* ImmediateSerialSequenceExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B9483F210A4744007E59C8 /* ImmediateSerialSequenceExecutor.swift */; };
-		41B94844210A4744007E59C8 /* SequenceExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B94840210A4744007E59C8 /* SequenceExecutor.swift */; };
-		41B94845210A4744007E59C8 /* ConcurrentSequenceExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B94841210A4744007E59C8 /* ConcurrentSequenceExecutor.swift */; };
-		41B94846210A4744007E59C8 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B94842210A4744007E59C8 /* Task.swift */; };
-		41B94849210A4756007E59C8 /* ConcurrentSequenceExecutorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41B94848210A4756007E59C8 /* ConcurrentSequenceExecutorTests.swift */; };
-		OBJ_27 /* AtomicBool.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* AtomicBool.swift */; };
-		OBJ_28 /* AtomicInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* AtomicInt.swift */; };
-		OBJ_29 /* AtomicReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* AtomicReference.swift */; };
-		OBJ_30 /* CountDownLatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* CountDownLatch.swift */; };
-		OBJ_48 /* AtomicBoolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* AtomicBoolTests.swift */; };
-		OBJ_49 /* AtomicIntTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* AtomicIntTests.swift */; };
-		OBJ_50 /* AtomicReferenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* AtomicReferenceTests.swift */; };
-		OBJ_51 /* CountDownLatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* CountDownLatchTests.swift */; };
-		OBJ_53 /* Concurrency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Concurrency::Concurrency::Product" /* Concurrency.framework */; };
+		OBJ_40 /* AtomicBool.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* AtomicBool.swift */; };
+		OBJ_41 /* AtomicInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* AtomicInt.swift */; };
+		OBJ_42 /* AtomicReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* AtomicReference.swift */; };
+		OBJ_43 /* CountDownLatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* CountDownLatch.swift */; };
+		OBJ_44 /* ConcurrentSequenceExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* ConcurrentSequenceExecutor.swift */; };
+		OBJ_45 /* ImmediateSerialSequenceExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* ImmediateSerialSequenceExecutor.swift */; };
+		OBJ_46 /* SequenceExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* SequenceExecutor.swift */; };
+		OBJ_47 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* Task.swift */; };
+		OBJ_49 /* ObjCBridges.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Concurrency::ObjCBridges::Product" /* ObjCBridges.framework */; };
+		OBJ_68 /* AtomicBoolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* AtomicBoolTests.swift */; };
+		OBJ_69 /* AtomicIntTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* AtomicIntTests.swift */; };
+		OBJ_70 /* AtomicReferenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_27 /* AtomicReferenceTests.swift */; };
+		OBJ_71 /* CountDownLatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_28 /* CountDownLatchTests.swift */; };
+		OBJ_72 /* ConcurrentSequenceExecutorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* ConcurrentSequenceExecutorTests.swift */; };
+		OBJ_74 /* Concurrency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Concurrency::Concurrency::Product" /* Concurrency.framework */; };
+		OBJ_75 /* ObjCBridges.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Concurrency::ObjCBridges::Product" /* ObjCBridges.framework */; };
+		OBJ_82 /* AtomicBridges.m in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* AtomicBridges.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		412CDD2D20B88EAB00AF5890 /* PBXContainerItemProxy */ = {
+		41B04ADA21C1E84C00328020 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "Concurrency::ObjCBridges";
+			remoteInfo = ObjCBridges;
+		};
+		41B04ADB21C1E84C00328020 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = "Concurrency::Concurrency";
 			remoteInfo = Concurrency;
 		};
+		41B04ADC21C1E84C00328020 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "Concurrency::ObjCBridges";
+			remoteInfo = ObjCBridges;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		41B9483F210A4744007E59C8 /* ImmediateSerialSequenceExecutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImmediateSerialSequenceExecutor.swift; sourceTree = "<group>"; };
-		41B94840210A4744007E59C8 /* SequenceExecutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequenceExecutor.swift; sourceTree = "<group>"; };
-		41B94841210A4744007E59C8 /* ConcurrentSequenceExecutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcurrentSequenceExecutor.swift; sourceTree = "<group>"; };
-		41B94842210A4744007E59C8 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
-		41B94848210A4756007E59C8 /* ConcurrentSequenceExecutorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConcurrentSequenceExecutorTests.swift; sourceTree = "<group>"; };
 		"Concurrency::Concurrency::Product" /* Concurrency.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Concurrency.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Concurrency::ConcurrencyTests::Product" /* ConcurrencyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = ConcurrencyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		"Concurrency::ObjCBridges::Product" /* ObjCBridges.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ObjCBridges.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* AtomicInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomicInt.swift; sourceTree = "<group>"; };
 		OBJ_11 /* AtomicReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomicReference.swift; sourceTree = "<group>"; };
 		OBJ_12 /* CountDownLatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDownLatch.swift; sourceTree = "<group>"; };
-		OBJ_15 /* AtomicBoolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomicBoolTests.swift; sourceTree = "<group>"; };
-		OBJ_16 /* AtomicIntTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomicIntTests.swift; sourceTree = "<group>"; };
-		OBJ_17 /* AtomicReferenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomicReferenceTests.swift; sourceTree = "<group>"; };
-		OBJ_18 /* CountDownLatchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDownLatchTests.swift; sourceTree = "<group>"; };
+		OBJ_14 /* ConcurrentSequenceExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcurrentSequenceExecutor.swift; sourceTree = "<group>"; };
+		OBJ_15 /* ImmediateSerialSequenceExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmediateSerialSequenceExecutor.swift; sourceTree = "<group>"; };
+		OBJ_16 /* SequenceExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceExecutor.swift; sourceTree = "<group>"; };
+		OBJ_17 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		OBJ_19 /* AtomicBridges.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AtomicBridges.m; sourceTree = "<group>"; };
+		OBJ_21 /* AtomicBridges.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AtomicBridges.h; sourceTree = "<group>"; };
+		OBJ_22 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; name = module.modulemap; path = "/Users/yiw/Uber/GitHub/swift-concurrency/Concurrency.xcodeproj/GeneratedModuleMap/ObjCBridges/module.modulemap"; sourceTree = "<group>"; };
+		OBJ_25 /* AtomicBoolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomicBoolTests.swift; sourceTree = "<group>"; };
+		OBJ_26 /* AtomicIntTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomicIntTests.swift; sourceTree = "<group>"; };
+		OBJ_27 /* AtomicReferenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomicReferenceTests.swift; sourceTree = "<group>"; };
+		OBJ_28 /* CountDownLatchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDownLatchTests.swift; sourceTree = "<group>"; };
+		OBJ_30 /* ConcurrentSequenceExecutorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcurrentSequenceExecutorTests.swift; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		OBJ_9 /* AtomicBool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomicBool.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		OBJ_31 /* Frameworks */ = {
+		OBJ_48 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
+				OBJ_49 /* ObjCBridges.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_52 /* Frameworks */ = {
+		OBJ_73 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_53 /* Concurrency.framework in Frameworks */,
+				OBJ_74 /* Concurrency.framework in Frameworks */,
+				OBJ_75 /* ObjCBridges.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_83 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		41B9483E210A4744007E59C8 /* Executor */ = {
+		OBJ_13 /* Executor */ = {
 			isa = PBXGroup;
 			children = (
-				41B9483F210A4744007E59C8 /* ImmediateSerialSequenceExecutor.swift */,
-				41B94840210A4744007E59C8 /* SequenceExecutor.swift */,
-				41B94841210A4744007E59C8 /* ConcurrentSequenceExecutor.swift */,
-				41B94842210A4744007E59C8 /* Task.swift */,
+				OBJ_14 /* ConcurrentSequenceExecutor.swift */,
+				OBJ_15 /* ImmediateSerialSequenceExecutor.swift */,
+				OBJ_16 /* SequenceExecutor.swift */,
+				OBJ_17 /* Task.swift */,
 			);
 			path = Executor;
 			sourceTree = "<group>";
 		};
-		41B94847210A4756007E59C8 /* Executor */ = {
+		OBJ_18 /* ObjCBridges */ = {
 			isa = PBXGroup;
 			children = (
-				41B94848210A4756007E59C8 /* ConcurrentSequenceExecutorTests.swift */,
+				OBJ_19 /* AtomicBridges.m */,
+				OBJ_20 /* include */,
 			);
-			path = Executor;
+			name = ObjCBridges;
+			path = Sources/ObjCBridges;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_20 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_21 /* AtomicBridges.h */,
+				OBJ_22 /* module.modulemap */,
+			);
+			path = include;
 			sourceTree = "<group>";
 		};
-		OBJ_13 /* Tests */ = {
+		OBJ_23 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_14 /* ConcurrencyTests */,
+				OBJ_24 /* ConcurrencyTests */,
 			);
 			name = Tests;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_14 /* ConcurrencyTests */ = {
+		OBJ_24 /* ConcurrencyTests */ = {
 			isa = PBXGroup;
 			children = (
-				41B94847210A4756007E59C8 /* Executor */,
-				OBJ_15 /* AtomicBoolTests.swift */,
-				OBJ_16 /* AtomicIntTests.swift */,
-				OBJ_17 /* AtomicReferenceTests.swift */,
-				OBJ_18 /* CountDownLatchTests.swift */,
+				OBJ_25 /* AtomicBoolTests.swift */,
+				OBJ_26 /* AtomicIntTests.swift */,
+				OBJ_27 /* AtomicReferenceTests.swift */,
+				OBJ_28 /* CountDownLatchTests.swift */,
+				OBJ_29 /* Executor */,
 			);
 			name = ConcurrencyTests;
 			path = Tests/ConcurrencyTests;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_19 /* Products */ = {
+		OBJ_29 /* Executor */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_30 /* ConcurrentSequenceExecutorTests.swift */,
+			);
+			path = Executor;
+			sourceTree = "<group>";
+		};
+		OBJ_31 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				"Concurrency::ConcurrencyTests::Product" /* ConcurrencyTests.xctest */,
+				"Concurrency::ObjCBridges::Product" /* ObjCBridges.framework */,
 				"Concurrency::Concurrency::Product" /* Concurrency.framework */,
 			);
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 = {
+		OBJ_5 /*  */ = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
 				OBJ_7 /* Sources */,
-				OBJ_13 /* Tests */,
-				OBJ_19 /* Products */,
+				OBJ_23 /* Tests */,
+				OBJ_31 /* Products */,
 			);
+			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				OBJ_8 /* Concurrency */,
+				OBJ_18 /* ObjCBridges */,
 			);
 			name = Sources;
 			sourceTree = SOURCE_ROOT;
@@ -141,11 +193,11 @@
 		OBJ_8 /* Concurrency */ = {
 			isa = PBXGroup;
 			children = (
-				41B9483E210A4744007E59C8 /* Executor */,
 				OBJ_9 /* AtomicBool.swift */,
 				OBJ_10 /* AtomicInt.swift */,
 				OBJ_11 /* AtomicReference.swift */,
 				OBJ_12 /* CountDownLatch.swift */,
+				OBJ_13 /* Executor */,
 			);
 			name = Concurrency;
 			path = Sources/Concurrency;
@@ -156,14 +208,15 @@
 /* Begin PBXNativeTarget section */
 		"Concurrency::Concurrency" /* Concurrency */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_23 /* Build configuration list for PBXNativeTarget "Concurrency" */;
+			buildConfigurationList = OBJ_36 /* Build configuration list for PBXNativeTarget "Concurrency" */;
 			buildPhases = (
-				OBJ_26 /* Sources */,
-				OBJ_31 /* Frameworks */,
+				OBJ_39 /* Sources */,
+				OBJ_48 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				OBJ_50 /* PBXTargetDependency */,
 			);
 			name = Concurrency;
 			productName = Concurrency;
@@ -172,20 +225,37 @@
 		};
 		"Concurrency::ConcurrencyTests" /* ConcurrencyTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_44 /* Build configuration list for PBXNativeTarget "ConcurrencyTests" */;
+			buildConfigurationList = OBJ_64 /* Build configuration list for PBXNativeTarget "ConcurrencyTests" */;
 			buildPhases = (
-				OBJ_47 /* Sources */,
-				OBJ_52 /* Frameworks */,
+				OBJ_67 /* Sources */,
+				OBJ_73 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				OBJ_54 /* PBXTargetDependency */,
+				OBJ_76 /* PBXTargetDependency */,
+				OBJ_77 /* PBXTargetDependency */,
 			);
 			name = ConcurrencyTests;
 			productName = ConcurrencyTests;
 			productReference = "Concurrency::ConcurrencyTests::Product" /* ConcurrencyTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		"Concurrency::ObjCBridges" /* ObjCBridges */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_78 /* Build configuration list for PBXNativeTarget "ObjCBridges" */;
+			buildPhases = (
+				OBJ_81 /* Sources */,
+				OBJ_83 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ObjCBridges;
+			productName = ObjCBridges;
+			productReference = "Concurrency::ObjCBridges::Product" /* ObjCBridges.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -193,7 +263,15 @@
 		OBJ_1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 1010;
+				TargetAttributes = {
+					"Concurrency::Concurrency" = {
+						LastSwiftMigration = 1010;
+					};
+					"Concurrency::ConcurrencyTests" = {
+						LastSwiftMigration = 1010;
+					};
+				};
 			};
 			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "Concurrency" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -202,102 +280,75 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5;
-			productRefGroup = OBJ_19 /* Products */;
+			mainGroup = OBJ_5 /*  */;
+			productRefGroup = OBJ_31 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				"Concurrency::Concurrency" /* Concurrency */,
 				"Concurrency::ConcurrencyTests" /* ConcurrencyTests */,
+				"Concurrency::ObjCBridges" /* ObjCBridges */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		OBJ_26 /* Sources */ = {
+		OBJ_39 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				41B94846210A4744007E59C8 /* Task.swift in Sources */,
-				OBJ_27 /* AtomicBool.swift in Sources */,
-				41B94844210A4744007E59C8 /* SequenceExecutor.swift in Sources */,
-				41B94845210A4744007E59C8 /* ConcurrentSequenceExecutor.swift in Sources */,
-				OBJ_28 /* AtomicInt.swift in Sources */,
-				OBJ_29 /* AtomicReference.swift in Sources */,
-				41B94843210A4744007E59C8 /* ImmediateSerialSequenceExecutor.swift in Sources */,
-				OBJ_30 /* CountDownLatch.swift in Sources */,
+				OBJ_40 /* AtomicBool.swift in Sources */,
+				OBJ_41 /* AtomicInt.swift in Sources */,
+				OBJ_42 /* AtomicReference.swift in Sources */,
+				OBJ_43 /* CountDownLatch.swift in Sources */,
+				OBJ_44 /* ConcurrentSequenceExecutor.swift in Sources */,
+				OBJ_45 /* ImmediateSerialSequenceExecutor.swift in Sources */,
+				OBJ_46 /* SequenceExecutor.swift in Sources */,
+				OBJ_47 /* Task.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_47 /* Sources */ = {
+		OBJ_67 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_48 /* AtomicBoolTests.swift in Sources */,
-				OBJ_49 /* AtomicIntTests.swift in Sources */,
-				41B94849210A4756007E59C8 /* ConcurrentSequenceExecutorTests.swift in Sources */,
-				OBJ_50 /* AtomicReferenceTests.swift in Sources */,
-				OBJ_51 /* CountDownLatchTests.swift in Sources */,
+				OBJ_68 /* AtomicBoolTests.swift in Sources */,
+				OBJ_69 /* AtomicIntTests.swift in Sources */,
+				OBJ_70 /* AtomicReferenceTests.swift in Sources */,
+				OBJ_71 /* CountDownLatchTests.swift in Sources */,
+				OBJ_72 /* ConcurrentSequenceExecutorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_81 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_82 /* AtomicBridges.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		OBJ_54 /* PBXTargetDependency */ = {
+		OBJ_50 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "Concurrency::ObjCBridges" /* ObjCBridges */;
+			targetProxy = 41B04ADA21C1E84C00328020 /* PBXContainerItemProxy */;
+		};
+		OBJ_76 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = "Concurrency::Concurrency" /* Concurrency */;
-			targetProxy = 412CDD2D20B88EAB00AF5890 /* PBXContainerItemProxy */;
+			targetProxy = 41B04ADB21C1E84C00328020 /* PBXContainerItemProxy */;
+		};
+		OBJ_77 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "Concurrency::ObjCBridges" /* ObjCBridges */;
+			targetProxy = 41B04ADC21C1E84C00328020 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		OBJ_24 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = Concurrency.xcodeproj/Concurrency_Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
-				OTHER_CFLAGS = "$(inherited)";
-				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = Concurrency;
-				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
-				TARGET_NAME = Concurrency;
-			};
-			name = Debug;
-		};
-		OBJ_25 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = Concurrency.xcodeproj/Concurrency_Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
-				OTHER_CFLAGS = "$(inherited)";
-				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = Concurrency;
-				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
-				TARGET_NAME = Concurrency;
-			};
-			name = Release;
-		};
 		OBJ_3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -328,24 +379,84 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "-DXcode";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SWIFT_PACKAGE;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "SWIFT_PACKAGE DEBUG";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				USE_HEADERMAP = NO;
 			};
 			name = Debug;
+		};
+		OBJ_37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/Sources/ObjCBridges/include",
+					"$(SRCROOT)/Concurrency.xcodeproj/GeneratedModuleMap/ObjCBridges",
+				);
+				INFOPLIST_FILE = Concurrency.xcodeproj/Concurrency_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Concurrency.xcodeproj/GeneratedModuleMap/ObjCBridges/module.modulemap";
+				PRODUCT_BUNDLE_IDENTIFIER = Concurrency;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 4.2;
+				TARGET_NAME = Concurrency;
+			};
+			name = Debug;
+		};
+		OBJ_38 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/Sources/ObjCBridges/include",
+					"$(SRCROOT)/Concurrency.xcodeproj/GeneratedModuleMap/ObjCBridges",
+				);
+				INFOPLIST_FILE = Concurrency.xcodeproj/Concurrency_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Concurrency.xcodeproj/GeneratedModuleMap/ObjCBridges/module.modulemap";
+				PRODUCT_BUNDLE_IDENTIFIER = Concurrency;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 4.2;
+				TARGET_NAME = Concurrency;
+			};
+			name = Release;
 		};
 		OBJ_4 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -381,8 +492,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				OTHER_SWIFT_FLAGS = "-DXcode";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -393,41 +504,107 @@
 			};
 			name = Release;
 		};
-		OBJ_45 /* Debug */ = {
+		OBJ_65 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/Sources/ObjCBridges/include",
+					"$(SRCROOT)/Concurrency.xcodeproj/GeneratedModuleMap/ObjCBridges",
+				);
 				INFOPLIST_FILE = Concurrency.xcodeproj/ConcurrencyTests_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				SWIFT_VERSION = 4.0;
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Concurrency.xcodeproj/GeneratedModuleMap/ObjCBridges/module.modulemap";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 4.2;
 				TARGET_NAME = ConcurrencyTests;
 			};
 			name = Debug;
 		};
-		OBJ_46 /* Release */ = {
+		OBJ_66 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/Sources/ObjCBridges/include",
+					"$(SRCROOT)/Concurrency.xcodeproj/GeneratedModuleMap/ObjCBridges",
+				);
 				INFOPLIST_FILE = Concurrency.xcodeproj/ConcurrencyTests_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				SWIFT_VERSION = 4.0;
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Concurrency.xcodeproj/GeneratedModuleMap/ObjCBridges/module.modulemap";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 4.2;
 				TARGET_NAME = ConcurrencyTests;
+			};
+			name = Release;
+		};
+		OBJ_79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = NO;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/Sources/ObjCBridges/include",
+				);
+				INFOPLIST_FILE = Concurrency.xcodeproj/ObjCBridges_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = ObjCBridges;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				TARGET_NAME = ObjCBridges;
+			};
+			name = Debug;
+		};
+		OBJ_80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = NO;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/Sources/ObjCBridges/include",
+				);
+				INFOPLIST_FILE = Concurrency.xcodeproj/ObjCBridges_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = ObjCBridges;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				TARGET_NAME = ObjCBridges;
 			};
 			name = Release;
 		};
@@ -443,20 +620,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_23 /* Build configuration list for PBXNativeTarget "Concurrency" */ = {
+		OBJ_36 /* Build configuration list for PBXNativeTarget "Concurrency" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_24 /* Debug */,
-				OBJ_25 /* Release */,
+				OBJ_37 /* Debug */,
+				OBJ_38 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_44 /* Build configuration list for PBXNativeTarget "ConcurrencyTests" */ = {
+		OBJ_64 /* Build configuration list for PBXNativeTarget "ConcurrencyTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_45 /* Debug */,
-				OBJ_46 /* Release */,
+				OBJ_65 /* Debug */,
+				OBJ_66 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_78 /* Build configuration list for PBXNativeTarget "ObjCBridges" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_79 /* Debug */,
+				OBJ_80 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

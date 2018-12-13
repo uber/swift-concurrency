@@ -35,3 +35,4 @@ Packages/
 Package.pins
 Package.resolved
 .build/
+.DS_Store

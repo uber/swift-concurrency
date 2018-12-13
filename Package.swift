@@ -13,8 +13,11 @@ let package = Package(
     dependencies: [],
     targets: [
         .target(
+            name: "ObjCBridges",
+            dependencies:[]),
+        .target(
             name: "Concurrency",
-            dependencies: []),
+            dependencies: ["ObjCBridges"]),
         .testTarget(
             name: "ConcurrencyTests",
             dependencies: ["Concurrency"]),
