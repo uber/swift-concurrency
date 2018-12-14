@@ -30,4 +30,8 @@
     return atomic_compare_exchange_strong(value, expected, desired);
 }
 
++ (bool)comparePointer:(void * volatile *)value withExpectedPointer:(void *)expected andSwapPointer:(void *)desired {
+    return __sync_bool_compare_and_swap(value, expected, desired);
+}
+
 @end

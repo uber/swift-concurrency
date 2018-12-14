@@ -16,6 +16,7 @@
 
 import Foundation
 import libkern
+import ObjCBridges
 
 /// A concurrency utility class that supports locking-free synchronization on mutating an object
 /// reference. Unlike using a lock, concurrent read and write accesses to this class is allowed. At
@@ -28,7 +29,7 @@ public class AtomicReference<ValueType> {
         get {
             // Create a memory barrier to ensure the entire memory stack is in sync so we
             // can safely retrieve the value. This guarantees the initial value is in sync.
-            OSMemoryBarrier()
+            atomic_thread_fence(memory_order_seq_cst)
             return wrappedValue
         }
         set {
@@ -59,7 +60,7 @@ public class AtomicReference<ValueType> {
         let expectPointer = unsafePassUnretainedPointer(value: expect)
         let newValuePointer = unsafePassUnretainedPointer(value: newValue)
 
-        if OSAtomicCompareAndSwapPtrBarrier(expectPointer, newValuePointer, pointer) {
+        if AtomicBridges.comparePointer(pointer, withExpectedPointer: expectPointer, andSwapPointer: newValuePointer) {
             // If pointer swap succeeded, a memory berrier is created, so we can safely write the new
             // value.
             wrappedValue = newValue

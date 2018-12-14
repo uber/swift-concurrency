@@ -19,14 +19,6 @@ import XCTest
 
 class CountDownLatchTests: XCTestCase {
 
-    static var allTests = [
-        ("test_countDown_await_verifyCompletionWithTrue", test_countDown_await_verifyCompletionWithTrue),
-        ("test_countDown_await_withTimeout_verifyCompletionWithFalse", test_countDown_await_withTimeout_verifyCompletionWithFalse),
-        ("test_countDown_await_verifyDuplicateCountDown_verifyDuplicateAwaitCompletesWithTrue", test_countDown_await_verifyDuplicateCountDown_verifyDuplicateAwaitCompletesWithTrue),
-        ("test_multipleAwaitBeforeCountDown_verifyCompletesWithTrue", test_multipleAwaitBeforeCountDown_verifyCompletesWithTrue),
-        ("test_multipleAsyncAwaitBeforeCountDown_verifyCompletesWithTrue", test_multipleAsyncAwaitBeforeCountDown_verifyCompletesWithTrue),
-    ]
-
     func test_countDown_await_verifyCompletionWithTrue() {
         let latch = CountDownLatch(count: 3)
 
