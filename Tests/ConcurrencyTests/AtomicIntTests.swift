@@ -19,18 +19,6 @@ import XCTest
 
 class AtomicIntTests: XCTestCase {
 
-    static var allTests = [
-        ("test_init_verifyInitialValue", test_init_verifyInitialValue),
-        ("test_initGetSet_verifySetToNewValue", test_initGetSet_verifySetToNewValue),
-        ("test_compareAndSet_verifySettingNewValue", test_compareAndSet_verifySettingNewValue),
-        ("test_compareAndSet_withFalseExpectValue_verifyNotSettingNewValue", test_compareAndSet_withFalseExpectValue_verifyNotSettingNewValue),
-        ("test_getAndSet_verifySettingNewValueReturningOldValue", test_getAndSet_verifySettingNewValueReturningOldValue),
-        ("test_incrementAndGet_verifyNewValue", test_incrementAndGet_verifyNewValue),
-        ("test_decrementAndGet_verifyNewValue", test_decrementAndGet_verifyNewValue),
-        ("test_getAndIncrement_verifyNewValue", test_getAndIncrement_verifyNewValue),
-        ("test_getAndDecrement_verifyNewValue", test_getAndDecrement_verifyNewValue),
-    ]
-
     func test_init_verifyInitialValue() {
         let initialValue = 123
         let atomicInt = AtomicInt(initialValue: initialValue)

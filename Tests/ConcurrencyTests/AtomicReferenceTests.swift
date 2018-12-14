@@ -19,16 +19,6 @@ import XCTest
 
 class AtomicReferenceTests: XCTestCase {
 
-    static var allTests = [
-        ("test_init_verifyInitialValue", test_init_verifyInitialValue),
-        ("test_initGetSet_verifySetToNewValue", test_initGetSet_verifySetToNewValue),
-        ("test_compareAndSet_verifySettingNewValue", test_compareAndSet_verifySettingNewValue),
-        ("test_compareAndSet_withFalseExpectValue_verifyNotSettingNewValue", test_compareAndSet_withFalseExpectValue_verifyNotSettingNewValue),
-        ("test_compareAndSet_withNil_verifySettingNewValue", test_compareAndSet_withNil_verifySettingNewValue),
-        ("test_getAndSet_verifySettingNewValueReturningOldValue", test_getAndSet_verifySettingNewValueReturningOldValue),
-        ("test_compareAndSet_initialNilThenResetToNil_verifySuccess", test_compareAndSet_initialNilThenResetToNil_verifySuccess),
-    ]
-
     func test_init_verifyInitialValue() {
         let initialValue = NSObject()
         let atomicRef = AtomicReference<NSObject>(initialValue: initialValue)
