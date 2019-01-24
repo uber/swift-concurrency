@@ -81,15 +81,19 @@ public class ConcurrentSequenceExecutor: SequenceExecutor {
                 sequenceHandle.willBeginExecuting(taskId: task.id)
             }
 
-            let result = task.typeErasedExecute()
-            let nextExecution = execution(task, result)
-            self.taskSemaphore?.signal()
+            do {
+                let result = try task.typeErasedExecute()
+                let nextExecution = execution(task, result)
+                self.taskSemaphore?.signal()
 
-            switch nextExecution {
-            case .continueSequence(let nextTask):
-                self.execute(nextTask, with: sequenceHandle, execution)
-            case .endOfSequence(let result):
-                sequenceHandle.sequenceDidComplete(with: result)
+                switch nextExecution {
+                case .continueSequence(let nextTask):
+                    self.execute(nextTask, with: sequenceHandle, execution)
+                case .endOfSequence(let result):
+                    sequenceHandle.sequenceDidComplete(with: result)
+                }
+            } catch {
+                sequenceHandle.sequenceDidError(with: error)
             }
         }
     }
@@ -101,11 +105,12 @@ private class SynchronizedSequenceExecutionHandle<SequenceResultType>: SequenceE
     private let didCancel = AtomicBool(initialValue: false)
     private let currentTaskId = AtomicInt(initialValue: nonTrackingDefaultTaskId)
 
-    // Use a lock to ensure result is properly accessed, since the read
+    // Use a lock to ensure result/error is properly accessed, since the read
     // `await` method may be invoked on a different thread than the write
-    // `sequenceDidComplete` method.
+    // `sequenceDidComplete`/`sequenceDidError` method.
     private let resultLock = NSRecursiveLock()
     private var result: SequenceResultType?
+    private var error: Error?
 
     fileprivate var isCancelled: Bool {
         return didCancel.value
@@ -125,14 +130,26 @@ private class SynchronizedSequenceExecutionHandle<SequenceResultType>: SequenceE
         defer {
             resultLock.unlock()
         }
-        // If latch was counted down, the result must have been set. Therefore,
-        // this forced unwrap is safe.
-        return result!
+        if let error = self.error {
+            throw error
+        } else {
+            // If latch was counted down and there is no error, the result must have been
+            // set. Therefore, this forced-unwrap is safe.
+            return result!
+        }
     }
 
     fileprivate func sequenceDidComplete(with result: SequenceResultType) {
         resultLock.lock()
         self.result = result
+        resultLock.unlock()
+
+        latch.countDown()
+    }
+
+    fileprivate func sequenceDidError(with error: Error) {
+        resultLock.lock()
+        self.error = error
         resultLock.unlock()
 
         latch.countDown()

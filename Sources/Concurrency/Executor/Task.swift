@@ -32,10 +32,11 @@ public protocol Task {
     /// - note: This method should only be used by internal executor
     /// implementations.
     /// - returns: The type erased execution result of this task.
+    /// - throws: Any error occurred during execution.
     // Return type cannot be generic since the `Task` type needs to be
     // referenced by the executor class which cannot provide type information
     // for results.
-    func typeErasedExecute() -> Any
+    func typeErasedExecute() throws -> Any
 }
 
 /// The base abstraction of a task that has a defined execution result
@@ -62,17 +63,19 @@ open class AbstractTask<ResultType>: Task {
     /// - note: This method should only be used by internal executor
     /// implementations.
     /// - returns: The type erased execution result of this task.
+    /// - throws: Any error occurred during execution.
     // Return type cannot be generic since the `Task` type needs to be
     // referenced by the executor class which cannot provide type information
     // for results.
-    public final func typeErasedExecute() -> Any {
-        return execute()
+    public final func typeErasedExecute() throws -> Any {
+        return try execute()
     }
 
     /// Execute this task and return the result.
     ///
     /// - returns: The execution result of this task.
-    open func execute() -> ResultType {
+    /// - throws: Any error occurred during execution.
+    open func execute() throws -> ResultType {
         fatalError("\(self).execute is not yet implemented.")
     }
 }

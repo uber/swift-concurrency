@@ -1,6 +1,7 @@
 # Xcode Add Xcode project to allow Carthage.
 #*.xcodeproj
 #*.xcworkspace
+Concurrency.xcodeproj/xcshareddata/xcschemes/Concurrency-Package.xcscheme
 
 ## Build generated
 build/

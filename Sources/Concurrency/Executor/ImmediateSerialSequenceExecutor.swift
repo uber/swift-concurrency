@@ -54,13 +54,17 @@ public class ImmediateSerialSequenceExecutor: SequenceExecutor {
             return
         }
 
-        let result = task.typeErasedExecute()
-        let nextExecution = execution(task, result)
-        switch nextExecution {
-        case .continueSequence(let nextTask):
-            self.execute(nextTask, with: sequenceHandle, execution)
-        case .endOfSequence(let result):
-            sequenceHandle.sequenceDidComplete(with: result)
+        do {
+            let result = try task.typeErasedExecute()
+            let nextExecution = execution(task, result)
+            switch nextExecution {
+            case .continueSequence(let nextTask):
+                self.execute(nextTask, with: sequenceHandle, execution)
+            case .endOfSequence(let result):
+                sequenceHandle.sequenceDidComplete(with: result)
+            }
+        } catch {
+            sequenceHandle.sequenceDidError(with: error)
         }
     }
 }
@@ -69,17 +73,26 @@ private class SequenceExecutionHandleImpl<SequenceResultType>: SequenceExecution
 
     private var didCancel = false
     private var result: SequenceResultType?
+    private var error: Error?
 
     fileprivate var isCancelled: Bool {
         return didCancel
     }
 
     fileprivate override func await(withTimeout timeout: TimeInterval?) throws -> SequenceResultType {
-        return result!
+        if let error = self.error {
+            throw error
+        } else {
+            return result!
+        }
     }
 
     fileprivate func sequenceDidComplete(with result: SequenceResultType) {
         self.result = result
+    }
+
+    fileprivate func sequenceDidError(with error: Error) {
+        self.error = error
     }
 
     fileprivate override func cancel() {
