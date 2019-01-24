@@ -43,6 +43,7 @@ open class SequenceExecutionHandle<SequenceResultType> {
     /// completes.
     /// - throws: `SequenceExecutionError.awaitTimeout` if the given timeout
     /// period elapsed before the sequence execution completed.
+    /// - throws: Any error thrown by the task during execution.
     open func await(withTimeout timeout: TimeInterval?) throws -> SequenceResultType {
         fatalError("await not yet implemented.")
     }
