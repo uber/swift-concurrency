@@ -110,66 +110,76 @@
          );
       };
       "OBJ_10" = {
-         isa = "PBXFileReference";
-         path = "AtomicInt.swift";
+         isa = "PBXGroup";
+         children = (
+            "OBJ_11",
+            "OBJ_12"
+         );
+         name = "include";
+         path = "include";
          sourceTree = "<group>";
       };
       "OBJ_11" = {
          isa = "PBXFileReference";
-         path = "AtomicReference.swift";
+         path = "AtomicBridges.h";
          sourceTree = "<group>";
       };
       "OBJ_12" = {
          isa = "PBXFileReference";
-         path = "AutoReleasingSemaphore.swift";
+         name = "module.modulemap";
+         path = "/Users/yiw/Uber/GitHub/swift-concurrency/Concurrency.xcodeproj/GeneratedModuleMap/ObjCBridges/module.modulemap";
          sourceTree = "<group>";
       };
       "OBJ_13" = {
-         isa = "PBXFileReference";
-         path = "CountDownLatch.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_14" = {
          isa = "PBXGroup";
          children = (
+            "OBJ_14",
             "OBJ_15",
             "OBJ_16",
             "OBJ_17",
-            "OBJ_18"
+            "OBJ_18",
+            "OBJ_19"
          );
-         name = "Executor";
-         path = "Executor";
+         name = "Concurrency";
+         path = "Sources/Concurrency";
+         sourceTree = "SOURCE_ROOT";
+      };
+      "OBJ_14" = {
+         isa = "PBXFileReference";
+         path = "AtomicBool.swift";
          sourceTree = "<group>";
       };
       "OBJ_15" = {
          isa = "PBXFileReference";
-         path = "ConcurrentSequenceExecutor.swift";
+         path = "AtomicInt.swift";
          sourceTree = "<group>";
       };
       "OBJ_16" = {
          isa = "PBXFileReference";
-         path = "ImmediateSerialSequenceExecutor.swift";
+         path = "AtomicReference.swift";
          sourceTree = "<group>";
       };
       "OBJ_17" = {
          isa = "PBXFileReference";
-         path = "SequenceExecutor.swift";
+         path = "AutoReleasingSemaphore.swift";
          sourceTree = "<group>";
       };
       "OBJ_18" = {
          isa = "PBXFileReference";
-         path = "Task.swift";
+         path = "CountDownLatch.swift";
          sourceTree = "<group>";
       };
       "OBJ_19" = {
          isa = "PBXGroup";
          children = (
             "OBJ_20",
-            "OBJ_21"
+            "OBJ_21",
+            "OBJ_22",
+            "OBJ_23"
          );
-         name = "ObjCBridges";
-         path = "Sources/ObjCBridges";
-         sourceTree = "SOURCE_ROOT";
+         name = "Executor";
+         path = "Executor";
+         sourceTree = "<group>";
       };
       "OBJ_2" = {
          isa = "XCConfigurationList";
@@ -182,28 +192,22 @@
       };
       "OBJ_20" = {
          isa = "PBXFileReference";
-         path = "AtomicBridges.m";
+         path = "ConcurrentSequenceExecutor.swift";
          sourceTree = "<group>";
       };
       "OBJ_21" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_22",
-            "OBJ_23"
-         );
-         name = "include";
-         path = "include";
+         isa = "PBXFileReference";
+         path = "ImmediateSerialSequenceExecutor.swift";
          sourceTree = "<group>";
       };
       "OBJ_22" = {
          isa = "PBXFileReference";
-         path = "AtomicBridges.h";
+         path = "SequenceExecutor.swift";
          sourceTree = "<group>";
       };
       "OBJ_23" = {
          isa = "PBXFileReference";
-         name = "module.modulemap";
-         path = "/Users/yiw/Uber/GitHub/swift-concurrency/Concurrency.xcodeproj/GeneratedModuleMap/ObjCBridges/module.modulemap";
+         path = "Task.swift";
          sourceTree = "<group>";
       };
       "OBJ_24" = {
@@ -457,35 +461,35 @@
       };
       "OBJ_42" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_9";
+         fileRef = "OBJ_14";
       };
       "OBJ_43" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_10";
+         fileRef = "OBJ_15";
       };
       "OBJ_44" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_11";
+         fileRef = "OBJ_16";
       };
       "OBJ_45" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_12";
+         fileRef = "OBJ_17";
       };
       "OBJ_46" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_13";
+         fileRef = "OBJ_18";
       };
       "OBJ_47" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_15";
+         fileRef = "OBJ_20";
       };
       "OBJ_48" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_16";
+         fileRef = "OBJ_21";
       };
       "OBJ_49" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_17";
+         fileRef = "OBJ_22";
       };
       "OBJ_5" = {
          isa = "PBXGroup";
@@ -500,7 +504,7 @@
       };
       "OBJ_50" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_18";
+         fileRef = "OBJ_23";
       };
       "OBJ_51" = {
          isa = "PBXFrameworksBuildPhase";
@@ -693,7 +697,7 @@
          isa = "PBXGroup";
          children = (
             "OBJ_8",
-            "OBJ_19"
+            "OBJ_13"
          );
          name = "Sources";
          path = "";
@@ -753,14 +757,10 @@
          isa = "PBXGroup";
          children = (
             "OBJ_9",
-            "OBJ_10",
-            "OBJ_11",
-            "OBJ_12",
-            "OBJ_13",
-            "OBJ_14"
+            "OBJ_10"
          );
-         name = "Concurrency";
-         path = "Sources/Concurrency";
+         name = "ObjCBridges";
+         path = "Sources/ObjCBridges";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_80" = {
@@ -864,7 +864,7 @@
       };
       "OBJ_86" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_20";
+         fileRef = "OBJ_9";
       };
       "OBJ_87" = {
          isa = "PBXFrameworksBuildPhase";
@@ -873,7 +873,7 @@
       };
       "OBJ_9" = {
          isa = "PBXFileReference";
-         path = "AtomicBool.swift";
+         path = "AtomicBridges.m";
          sourceTree = "<group>";
       };
    };
