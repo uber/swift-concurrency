@@ -173,6 +173,69 @@ class ConcurrentSequenceExecutorTests: XCTestCase {
             }
         }
     }
+
+    func test_executeSequence_limitMaxConcurrentTasks_withSuccessTasks_verifyCompletion() {
+        let executor = ConcurrentSequenceExecutor(name: "test_executeSequence_withNonTerminatingSequence_withTimeout_verifyAwaitTimeout", maxConcurrentTasks: 1)
+
+        let taskCount = AtomicInt(initialValue: 0)
+        let sequencedTask = MockSelfRepeatingTask(id: 123) {
+            return 0
+        }
+
+        let handle = executor.executeSequence(from: sequencedTask) { _, _ -> SequenceExecution<Int> in
+            let nextTask = MockSelfRepeatingTask(id: 123) {
+                return 0
+            }
+            let newCount = taskCount.incrementAndGet()
+            if newCount > 10 {
+                return .endOfSequence(32838)
+            } else {
+                return .continueSequence(nextTask)
+            }
+        }
+
+        do {
+            _ = try handle.await(withTimeout: 0.5)
+        } catch {
+            XCTFail()
+        }
+    }
+
+    func test_executeSequence_limitMaxConcurrentTasks_withErrorTasks_verifyCompletion() {
+        let executor = ConcurrentSequenceExecutor(name: "test_executeSequence_withNonTerminatingSequence_withTimeout_verifyAwaitTimeout", maxConcurrentTasks: 1)
+
+        let taskCount = AtomicInt(initialValue: 0)
+        let sequencedTask = MockSelfRepeatingTask(id: 123) {
+            return 0
+        }
+
+        let handle = executor.executeSequence(from: sequencedTask) { _, _ -> SequenceExecution<Int> in
+            let newCount = taskCount.incrementAndGet()
+            if newCount > 10 {
+                let errorTask = MockSelfRepeatingTask(id: 123) {
+                    throw MockError.messagedError("ghasvhfjhbafjkh")
+                }
+                return .continueSequence(errorTask)
+            } else {
+                let nextTask = MockSelfRepeatingTask(id: 123) {
+                    return 0
+                }
+                return .continueSequence(nextTask)
+            }
+        }
+
+        do  {
+            _ = try handle.await(withTimeout: nil)
+            XCTFail()
+        } catch {
+            switch error {
+            case MockError.messagedError(let message):
+                XCTAssertEqual(message, "ghasvhfjhbafjkh")
+            default:
+                XCTFail()
+            }
+        }
+    }
 }
 
 class MockSelfRepeatingTask: AbstractTask<Int> {

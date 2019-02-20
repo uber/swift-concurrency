@@ -93,6 +93,7 @@ public class ConcurrentSequenceExecutor: SequenceExecutor {
                     sequenceHandle.sequenceDidComplete(with: result)
                 }
             } catch {
+                self.taskSemaphore?.signal()
                 sequenceHandle.sequenceDidError(with: error)
             }
         }
