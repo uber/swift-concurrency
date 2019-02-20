@@ -38,6 +38,7 @@ public class AutoReleasingSemaphore {
     /// in dispatch_semaphore_wait(_:_:).
     /// - returns: This function returns non-zero if a thread is woken.
     /// Otherwise, zero is returned.
+    @discardableResult
     public func signal() -> Int {
         let newValue = waitingCount.decrementAndGet()
         if newValue < 0 {
@@ -65,6 +66,7 @@ public class AutoReleasingSemaphore {
     /// - parameter timeout: The amount of time in seconds to wait
     /// before returning with failure.
     /// - returns: The waiting result.
+    @discardableResult
     public func wait(timeout: TimeInterval) -> DispatchTimeoutResult {
         waitingCount.incrementAndGet()
         return semaphore.wait(timeout: DispatchTime.now() + timeout)

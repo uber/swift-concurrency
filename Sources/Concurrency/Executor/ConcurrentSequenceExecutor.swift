@@ -39,7 +39,7 @@ public class ConcurrentSequenceExecutor: SequenceExecutor {
     public init(name: String, qos: DispatchQoS = .userInitiated, shouldTrackTaskId: Bool = false, maxConcurrentTasks: Int? = nil) {
         taskQueue = DispatchQueue(label: "Executor.taskQueue-\(name)", qos: qos, attributes: .concurrent)
         if let maxConcurrentTasks = maxConcurrentTasks {
-            taskSemaphore = DispatchSemaphore(value: maxConcurrentTasks)
+            taskSemaphore = AutoReleasingSemaphore(value: maxConcurrentTasks)
         } else {
             taskSemaphore = nil
         }
@@ -63,10 +63,14 @@ public class ConcurrentSequenceExecutor: SequenceExecutor {
         return handle
     }
 
+    deinit {
+        print("deinit")
+    }
+
     // MARK: - Private
 
     private let taskQueue: DispatchQueue
-    private let taskSemaphore: DispatchSemaphore?
+    private let taskSemaphore: AutoReleasingSemaphore?
     private let shouldTrackTaskId: Bool
 
     private func execute<SequenceResultType>(_ task: Task, with sequenceHandle: SynchronizedSequenceExecutionHandle<SequenceResultType>, _ execution: @escaping (Task, Any) -> SequenceExecution<SequenceResultType>) {
