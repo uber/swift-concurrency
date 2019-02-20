@@ -63,10 +63,6 @@ public class ConcurrentSequenceExecutor: SequenceExecutor {
         return handle
     }
 
-    deinit {
-        print("deinit")
-    }
-
     // MARK: - Private
 
     private let taskQueue: DispatchQueue
