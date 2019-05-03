@@ -1,6 +1,9 @@
 language: objective-c
 osx_image: xcode10.1
 
+before_script:
+- "curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/fossas/fossa-cli/master/install.sh | sudo bash"
+
 env:
   - ACTION=test  PLATFORM=Mac     DESTINATION='platform=OS X'
   - ACTION=test  PLATFORM=iOS     DESTINATION='platform=iOS Simulator,name=iPhone XS'
@@ -8,3 +11,4 @@ env:
 
 script:
   - swift test
+  - fossa
