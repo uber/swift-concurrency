@@ -29,9 +29,11 @@ class AutoReleasingSemaphoreTests: XCTestCase {
         }
 
         Thread.sleep(forTimeInterval: 1)
-        semaphore = nil
 
         waitForExpectations(timeout: 5, handler: nil)
+      
+        semaphore = nil
+
     }
 
     func test_waitWithTimeout_verifyTimeout() {
@@ -60,8 +62,9 @@ class AutoReleasingSemaphoreTests: XCTestCase {
         }
 
         Thread.sleep(forTimeInterval: 1)
-        semaphore = nil
 
         waitForExpectations(timeout: 5, handler: nil)
+        semaphore = nil
+
     }
 }

@@ -27,6 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (bool)compare:(_Atomic(long) *)value withExpected:(long *)expected andSwap:(long)desired;
 
++ (long)atomicLoad:(_Atomic(long) *)value;
+
 + (bool)comparePointer:(void * _Nullable volatile * _Nonnull)value withExpectedPointer:(void *)expected andSwapPointer:(void *)desired;
 
 @end

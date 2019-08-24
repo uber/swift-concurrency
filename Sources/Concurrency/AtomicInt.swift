@@ -29,8 +29,7 @@ public class AtomicInt {
         get {
             // Create a memory barrier to ensure the entire memory stack is in sync so we
             // can safely retrieve the value. This guarantees the initial value is in sync.
-            atomic_thread_fence(memory_order_seq_cst)
-            return wrappedValue
+            return AtomicBridges.atomicLoad(wrappedValueOpaquePointer)
         }
         set {
             while true {
@@ -46,7 +45,13 @@ public class AtomicInt {
     ///
     /// - parameter initialValue: The initial value.
     public init(initialValue: Int) {
-        wrappedValue = initialValue
+        wrappedValue = UnsafeMutablePointer<Int>.allocate(capacity: 1)
+        wrappedValue.initialize(to: initialValue)
+    }
+  
+    deinit {
+        wrappedValue.deinitialize(count: 1)
+        wrappedValue.deallocate()
     }
 
     /// Atomically sets the new value, if the current value equals the expected value.
@@ -120,9 +125,9 @@ public class AtomicInt {
 
     // MARK: - Private
 
-    private var wrappedValue: Int
+    private var wrappedValue: UnsafeMutablePointer<Int>
 
     private var wrappedValueOpaquePointer: OpaquePointer {
-        return OpaquePointer(UnsafeMutablePointer<Int>(&wrappedValue))
+        return OpaquePointer(wrappedValue)
     }
 }
