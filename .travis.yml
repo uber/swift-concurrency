@@ -7,4 +7,4 @@ env:
   - ACTION=test  PLATFORM=tvOS    DESTINATION='platform=tvOS Simulator,name=Apple TV 4K'
 
 script:
-  - swift test
+  - swift test -c debug --sanitize=thread
