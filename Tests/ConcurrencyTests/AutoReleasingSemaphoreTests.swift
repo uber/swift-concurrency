@@ -64,6 +64,7 @@ class AutoReleasingSemaphoreTests: XCTestCase {
         Thread.sleep(forTimeInterval: 1)
 
         waitForExpectations(timeout: 5, handler: nil)
+        
         semaphore = nil
 
     }

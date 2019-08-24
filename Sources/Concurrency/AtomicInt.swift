@@ -27,8 +27,6 @@ public class AtomicInt {
     /// The current value.
     public var value: Int {
         get {
-            // Create a memory barrier to ensure the entire memory stack is in sync so we
-            // can safely retrieve the value. This guarantees the initial value is in sync.
             return AtomicBridges.atomicLoad(wrappedValueOpaquePointer)
         }
         set {
