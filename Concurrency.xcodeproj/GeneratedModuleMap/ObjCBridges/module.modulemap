@@ -1,4 +1,4 @@
 module ObjCBridges {
-    umbrella "/Users/yiw/Uber/GitHub/swift-concurrency/Sources/ObjCBridges/include"
+    umbrella "../../../Sources/ObjCBridges/include"
     export *
 }
