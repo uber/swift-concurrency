@@ -1,0 +1,2 @@
+
+SWIFT_OBJC_BRIDGING_HEADER = Sources/Concurrency/Concurrency-Bridging-Header.h
