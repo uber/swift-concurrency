@@ -16,7 +16,6 @@
 
 import Foundation
 import libkern
-import ObjCBridges
 
 /// A concurrency utility class that supports locking-free synchronization on mutating an integer
 /// value. Unlike using a lock, concurrent read and write accesses to this class is allowed. At

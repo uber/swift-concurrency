@@ -90,7 +90,6 @@
 		OBJ_21 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		OBJ_23 /* AtomicBridges.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AtomicBridges.m; sourceTree = "<group>"; };
 		OBJ_25 /* AtomicBridges.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AtomicBridges.h; sourceTree = "<group>"; };
-		OBJ_26 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; name = module.modulemap; path = "/Users/cameronmcgorian/Documents/dev/swift-concurrency/Concurrency.xcodeproj/GeneratedModuleMap/ObjCBridges/module.modulemap"; sourceTree = "<group>"; };
 		OBJ_29 /* AtomicBoolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomicBoolTests.swift; sourceTree = "<group>"; };
 		OBJ_30 /* AtomicIntTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomicIntTests.swift; sourceTree = "<group>"; };
 		OBJ_31 /* AtomicReferenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomicReferenceTests.swift; sourceTree = "<group>"; };
@@ -175,7 +174,6 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_25 /* AtomicBridges.h */,
-				OBJ_26 /* module.modulemap */,
 			);
 			path = include;
 			sourceTree = "<group>";
@@ -220,7 +218,7 @@
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -235,7 +233,6 @@
 				OBJ_44 /* CONTRIBUTING.md */,
 				OBJ_45 /* LICENSE.txt */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Configs */ = {
@@ -340,7 +337,7 @@
 				English,
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_36 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -489,14 +486,13 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/Sources/ObjCBridges/include",
-					"$(SRCROOT)/Concurrency.xcodeproj/GeneratedModuleMap/ObjCBridges",
 				);
 				INFOPLIST_FILE = Concurrency.xcodeproj/Concurrency_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Concurrency.xcodeproj/GeneratedModuleMap/ObjCBridges/module.modulemap";
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = Concurrency;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -519,14 +515,13 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/Sources/ObjCBridges/include",
-					"$(SRCROOT)/Concurrency.xcodeproj/GeneratedModuleMap/ObjCBridges",
 				);
 				INFOPLIST_FILE = Concurrency.xcodeproj/Concurrency_Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited) -Xcc -fmodule-map-file=$(SRCROOT)/Concurrency.xcodeproj/GeneratedModuleMap/ObjCBridges/module.modulemap";
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = Concurrency;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";

@@ -1,4 +1,0 @@
-module ObjCBridges {
-    umbrella "../../../Sources/ObjCBridges/include"
-    export *
-}
