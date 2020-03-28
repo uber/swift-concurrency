@@ -97,7 +97,7 @@ Or you can follow the steps above to generate a Xcode project and run tests with
 
 ## Related projects
 
-If you like Needle, check out other related open source projects from our team:
+If you like Swift Concurrency, check out other related open source projects from our team:
 - [Needle](https://github.com/uber/needle): a compile-time safe Swift dependency injection framework.
 - [Swift Abstract Class](https://github.com/uber/swift-abstract-class): a light-weight library along with an executable that enables compile-time safe abstract class development for Swift projects.
 - [Swift Common](https://github.com/uber/swift-common): common libraries used by this set of Swift open source projects.
