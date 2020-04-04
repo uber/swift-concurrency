@@ -27,6 +27,9 @@ public class AtomicInt {
     /// The current value.
     public var value: Int {
         get {
+            // Create a memory barrier to ensure the entire memory stack is in sync so we
+            // can safely retrieve the value. This guarantees the initial value is in sync.
+            atomic_thread_fence(memory_order_seq_cst)
             return AtomicBridges.atomicLoad(wrappedValueOpaquePointer)
         }
         set {
@@ -60,7 +63,9 @@ public class AtomicInt {
     @discardableResult
     public func compareAndSet(expect: Int, newValue: Int) -> Bool {
         var mutableExpected = expect
-        return AtomicBridges.compare(wrappedValueOpaquePointer, withExpected: UnsafeMutablePointer<Int>(&mutableExpected), andSwap: newValue)
+        return withUnsafeMutablePointer(to: &mutableExpected) { (pointer) -> Bool in
+            return AtomicBridges.compare(wrappedValueOpaquePointer, withExpected: pointer, andSwap: newValue)
+        }
     }
 
     /// Atomically increment the value and retrieve the new value.
