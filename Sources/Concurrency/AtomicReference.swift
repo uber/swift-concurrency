@@ -90,7 +90,7 @@ public class AtomicReference<ValueType> {
     private var wrappedValue: ValueType
 
     private func unsafePassUnretainedPointer(value: ValueType) -> UnsafeMutableRawPointer {
-        return UnsafeMutableRawPointer(Unmanaged.passUnretained(value as AnyObject).toOpaque())
+        UnsafeMutableRawPointer(Unmanaged.passUnretained(value as AnyObject).toOpaque())
     }
 
     deinit {

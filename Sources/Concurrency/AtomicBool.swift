@@ -70,10 +70,10 @@ public class AtomicBool {
     private let backingAtomic: AtomicInt
 
     private static func boolToInt(value: Bool) -> Int {
-        return value ? AtomicBool.trueIntValue : AtomicBool.falseIntValue
+        value ? AtomicBool.trueIntValue : AtomicBool.falseIntValue
     }
 
     private static func intToBool(value: Int) -> Bool {
-        return (value == AtomicBool.trueIntValue) ? true : false
+        value == AtomicBool.trueIntValue
     }
 }
