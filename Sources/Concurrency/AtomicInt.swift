@@ -93,7 +93,7 @@ public class AtomicInt {
     /// - returns: The old value before incrementing.
     @discardableResult
     public func getAndIncrement() -> Int {
-        return AtomicBridges.fetchAndIncrementBarrier(wrappedValueOpaquePointer)
+        AtomicBridges.fetchAndIncrementBarrier(wrappedValueOpaquePointer)
     }
 
     /// Atomically decrement the value and retrieve the old value.
@@ -101,7 +101,7 @@ public class AtomicInt {
     /// - returns: The old value before decrementing.
     @discardableResult
     public func getAndDecrement() -> Int {
-        return AtomicBridges.fetchAndDecrementBarrier(wrappedValueOpaquePointer)
+        AtomicBridges.fetchAndDecrementBarrier(wrappedValueOpaquePointer)
     }
 
     /// Atomically sets to the given new value and returns the old value.
@@ -123,6 +123,6 @@ public class AtomicInt {
     private var wrappedValue: Int
 
     private var wrappedValueOpaquePointer: OpaquePointer {
-        return OpaquePointer(UnsafeMutablePointer<Int>(&wrappedValue))
+        OpaquePointer(UnsafeMutablePointer<Int>(&wrappedValue))
     }
 }
